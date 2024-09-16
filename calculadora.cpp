@@ -7,12 +7,6 @@ int main (){
   setlocale(LC_CTYPE,"Spanish");
   
 
-//int valor;
- // while (valor>0)
-//{ cout<<"**************"<<endl;
-//cout<<"estoy en el while kkkk"<<endl;
-  //cout<<"ingresa un valor: "; 
-  //cin>>valor;
 int op,num1,num2,suma,resta,mult,div;
 int  base, exp, potencia;
 double num, raiz;
@@ -41,7 +35,7 @@ do{
      cout <<"el resultado es: "<<potencia<<endl;
          break;
     case 2:
-      cout<<"va a realizar una radicación"<<endl;
+      cout<<"va a realizar una radicaciÃ³n"<<endl;
       cout<<"ingrese el numero"<<endl;
       cin>>num;
       raiz = sqrt(num);
