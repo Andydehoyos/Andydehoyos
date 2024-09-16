@@ -1,3 +1,6 @@
+//use un vector de n posiciones(la que desee) y trate de llenarlo
+//haga la funcionalidad para que se pueda buscar un dato determinado
+
 #include<iostream>
 #include<locale.h>
 #include<windows.h>
