@@ -1,0 +1,119 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+void AgregarContenido(vector<string>& titulos, vector<string>& generos, vector<int>& anios, vector<int>& duraciones) {
+    string titulo, genero;
+    int anio, duracion;
+    
+    cout << "Ingrese el título"<<endl;;
+    cin.ignore();
+    getline(cin, titulo);
+    cout << "Ingrese el género"<<endl;;
+    getline(cin, genero);
+    cout << "Ingrese el año de lanzamiento:" <<endl;
+    cin >> anio;
+    cout << "Ingrese la duración (minutos)"<<endl;
+    cin >> duracion;
+    
+    titulos.push_back(titulo);
+    generos.push_back(genero);
+    anios.push_back(anio);
+    duraciones.push_back(duracion);
+    
+    cout << "Contenido agregado exitosamente"<<endl;
+}
+
+
+void BuscarContenido(const vector<string>& titulos, const vector<string>& generos, const vector<int>& anios, const vector<int>& duraciones) {
+    string titulo;
+    cout << "Ingrese el título a buscar:"<<endl;
+    cin.ignore();
+    getline(cin, titulo);
+    
+    for (size_t i = 0; i < titulos.size(); ++i) {
+        if (titulos[i] == titulo) {
+            cout << "Título: " << titulos[i] << endl;
+                 << "Género: " << generos[i] << endl;
+                 << "Año de lanzamiento: " << anios[i] << endl;
+                 << "Duración: " << duraciones[i] << " minutos\"<<endl;;
+            return;
+        }
+    }
+    cout << "No se encontró el contenido."<endl;
+}
+
+
+void MostrarRecomendaciones(const vector<string>& titulos, const vector<string>& generos, const vector<int>& anios, const string& criterio) {
+    bool encontrado = false;
+    for (size_t i = 0; i < titulos.size(); ++i) {
+        if (generos[i] == criterio) {
+            cout << "Título: " << titulos[i] << "\n";
+            encontrado = true;
+        }
+    }
+    if (!encontrado) {
+        cout << "No se encontraron recomendaciones para el género '" << criterio <<endl;
+    }
+}
+
+
+void ListarContenido(const vector<string>& titulos, const vector<string>& generos, const vector<int>& anios, const vector<int>& duraciones) {
+    if (titulos.empty()) {
+        cout << "No hay contenido en la plataforma"<<endl;
+        return;
+    }
+
+    for (size_t i = 0; i < titulos.size(); ++i) {
+        cout << "Título: " << titulos[i] << "\n"
+             << "Género: " << generos[i] << "\n"
+             << "Año de lanzamiento: " << anios[i] << "\n"
+             << "Duración: " << duraciones[i] << " minutos\n\n";
+    }
+}
+int main() {
+    vector<string> titulos;
+    vector<string> generos;
+    vector<int> anios;
+    vector<int> duraciones;
+    int opcion;
+
+    do {
+        cout << "Menú de opciones"<<endl;
+        cout << "1. Agregar contenido"<<endl;
+        cout << "2. Buscar contenido"<<endl;
+        cout << "3. Mostrar recomendaciones"<<endl;
+        cout << "4. Listar todo el contenido"<<endl;
+        cout << "5. Salir"<<endl;
+        cout << "Ingrese una opción"<<endl;
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                AgregarContenido(titulos, generos, anios, duraciones);
+                break;
+            case 2:
+                BuscarContenido(titulos, generos, anios, duraciones);
+                break;
+            case 3: {
+                string genero;
+                cout << "Ingrese el género para recomendaciones: ";
+                cin.ignore();
+                getline(cin, genero);
+                MostrarRecomendaciones(titulos, generos, anios, genero);
+                break;
+            }
+            case 4:
+                ListarContenido(titulos, generos, anios, duraciones);
+                break;
+            case 5:
+                cout << "Saliendo del programa.\n";
+                break;
+            default:
+                cout << "Opción inválida. Intente de nuevo.\n";
+        }
+    } while (opcion != 5);
+
+    return 0;
+}
