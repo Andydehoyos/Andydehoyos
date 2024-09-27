@@ -28,20 +28,20 @@ void AgregarContenido(vector<string>& titulos, vector<string>& generos, vector<i
 
 void BuscarContenido(const vector<string>& titulos, const vector<string>& generos, const vector<int>& anios, const vector<int>& duraciones) {
     string titulo;
-    cout << "Ingrese el título a buscar:"<<endl;
+    cout << "Ingrese el titulo a buscar:"<<endl;
     cin.ignore();
     getline(cin, titulo);
     
     for (size_t i = 0; i < titulos.size(); ++i) {
         if (titulos[i] == titulo) {
-            cout << "Título: " << titulos[i] << endl;
-                 << "Género: " << generos[i] << endl;
-                 << "Año de lanzamiento: " << anios[i] << endl;
-                 << "Duración: " << duraciones[i] << " minutos\"<<endl;;
+            cout << "Titulo: " << titulos[i] << endl;
+            cout << "Genero: " << generos[i] << endl;
+            cout << "Año de lanzamiento: " << anios[i] << endl;
+            cout<< "Duracion: " << duraciones[i] << " minutos\""<<endl;
             return;
         }
     }
-    cout << "No se encontró el contenido."<endl;
+    cout << "No se encontró el contenido."<<endl;
 }
 
 
